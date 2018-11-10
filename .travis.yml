@@ -4,8 +4,12 @@ node_js:
 install: true
 
 deploy:
-  skip_cleanup: true
   - provider: script
     script: bash fake_deploy.sh
     on:
       branch: develop
+  - provider: script
+    script: bash fake_deploy.sh
+    on:
+      tags: true
+      branch: master
