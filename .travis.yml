@@ -5,11 +5,13 @@ install: true
 
 deploy:
   - provider: script
-    script: bash fake_deploy.sh
+    skip_cleanup: true
+    script: bash fake_deploy.sh $DEV_MESSAGE
     on:
       branch: develop
   - provider: script
-    script: bash fake_deploy.sh
+    skip_cleanup: true
+    script: bash fake_deploy.sh $MASTER_MESSAGE
     on:
       tags: true
       branch: master
